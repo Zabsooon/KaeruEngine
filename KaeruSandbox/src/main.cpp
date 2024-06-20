@@ -1,6 +1,21 @@
-#include "test.h"
+#include "Kaeru/Application.h"
+#include <Kaeru.h>
 
-int main() {
-    hello();
-    return 0;
+class Sandbox : public Kaeru::Application
+{
+public:
+    Sandbox()
+    {
+
+    }
+
+    ~Sandbox()
+    {
+
+    }
+};
+
+Kaeru::Application* Kaeru::CreateApplication()
+{
+    return new Sandbox();
 }
