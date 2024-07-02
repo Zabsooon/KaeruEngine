@@ -6,17 +6,20 @@ namespace Kaeru::Logging {
 
     class LogMessage;
 
-    class ILogDestination {
+    class ILogDestination 
+    {
     public:
         virtual void writeLog(const LogMessage&) = 0;
     };
 
-    class ConsoleLogDestination : public ILogDestination {
+    class ConsoleLogDestination : public ILogDestination 
+    {
     public:
         void writeLog(const LogMessage&) override;
     };
 
-    class FileLogDestination : public ILogDestination {
+    class FileLogDestination : public ILogDestination 
+    {
     public:
         void writeLog(const LogMessage&) override;
 

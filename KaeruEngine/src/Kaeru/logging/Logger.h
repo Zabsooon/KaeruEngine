@@ -6,9 +6,14 @@
 
 namespace Kaeru::Logging {
 
-    class Logger {
+    class Logger 
+    {
     public:
         static Logger* getInstance();
+
+        template<typename... Types>
+        void log(LogLevel& loglevel, Types&... args);
+        void log(LogMessage&& logMessage);
 
     private:
         Logger();

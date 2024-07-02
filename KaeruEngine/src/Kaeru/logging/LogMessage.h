@@ -8,7 +8,8 @@
 
 namespace Kaeru::Logging {
 
-    enum class LogLevel {
+    enum class LogLevel 
+    {
         FATAL = 0,
         ERROR,
         WARN,
@@ -17,14 +18,27 @@ namespace Kaeru::Logging {
         TRACE
     };
 
-    class LogMessage {
+    class LogMessage 
+    {
     public:
         LogMessage();
         ~LogMessage();
+        LogMessage(std::unique_ptr<ILogDestination>& logDestination,
+                    LogLevel& logLevel,
+                    std::string& message);
+        LogMessage(std::unique_ptr<ILogDestination>& logDestination,
+                    LogLevel& logLevel, 
+                    std::string& message,
+                    std::time_t& timeStamp, 
+                    std::thread::id& threadId);
+
+        LogMessage(LogMessage&& logMessage) noexcept;
+        LogMessage& operator=(LogMessage&& other) noexcept;
 
         ILogDestination* getLogDestination() const;
         LogLevel getLogLevel() const;
         std::time_t getTimeStamp() const;
+        char* getTimeStampReadable() const;
         std::thread::id getThreadId() const;
         std::string getMessage() const;
 

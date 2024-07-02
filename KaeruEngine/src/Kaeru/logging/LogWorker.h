@@ -8,7 +8,8 @@
 
 namespace Kaeru::Logging {
 
-    class LogWorker {
+    class LogWorker 
+    {
     public:
         LogWorker(size_t threadCount, LogQueue<LogMessage>& logQueue);
         ~LogWorker();

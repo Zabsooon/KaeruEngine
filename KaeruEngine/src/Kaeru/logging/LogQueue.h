@@ -7,7 +7,8 @@
 namespace Kaeru::Logging {
 
     template<typename T>
-    class LogQueue {
+    class LogQueue 
+    {
     public:
         LogQueue();
         ~LogQueue();
